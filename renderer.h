@@ -9,13 +9,11 @@
 
 namespace FRRenderer
 {
-
     class Renderer
     {
     public:
-        void addModel(RenderModel *renderModel);
-        void removeModel(RenderModel *renderModel);
-
+        void addModel(RenderModel *renderModel) {}
+        void removeModel(RenderModel *renderModel) {}
     private:
         Renderer() = default;
     };

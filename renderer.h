@@ -2,21 +2,14 @@
 // Created by rsalogub on 25.11.19.
 //
 
-#ifndef RENDERER_H
-#define RENDERER_H
+#ifndef FR_RENDERER_H
+#define FR_RENDERER_H
 
-#include "rendermodel.h"
-
+#ifndef USE_FR_OPENGL_WARPPER
+#include <FRRenderer/realization/FROpenGLWrapper/renderer.h>
 namespace FRRenderer
 {
-    class Renderer
-    {
-    public:
-        void addModel(RenderModel *renderModel) {}
-        void removeModel(RenderModel *renderModel) {}
-    private:
-        Renderer() = default;
-    };
-
+    using FROpenGLWrapper::Renderer;
 }
-#endif //RENDERER_H
+#endif
+#endif //FR_RENDERER_H

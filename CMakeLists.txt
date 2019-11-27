@@ -17,10 +17,23 @@ if((NOT FR_OPENGL_WARPPER_PATH) OR (NOT EXISTS ${FR_OPENGL_WARPPER_PATH}))
     execute_process(COMMAND git clone git@github.com:Fork3r/FROpenGLWrapper.git -b dev
             ${CMAKE_CURRENT_SOURCE_DIR}/realization/FROpenGLWrapper)
 endif()
-#endif()
 include(${CMAKE_CURRENT_SOURCE_DIR}/realization/FROpenGLWrapper/CMakeLists.txt)
 include_directories(..)
 
-add_executable(FRRenderer main.cpp renderer.h model.h ${header} ${src})
+set(header
+        ${header}
+        renderer.h
+        model.h
+        camera.h
+        )
 
-TARGET_LINK_LIBRARIES(FRRenderer ${libraries})
+set(src
+        ${src}
+        main.cpp
+        )
+
+
+add_executable(FRRenderer main.cpp ${header} ${src})
+
+target_link_libraries(FRRenderer X11 ${libraries})
+target_compile_definitions(FRRenderer PUBLIC ${defines})

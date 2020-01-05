@@ -16,6 +16,7 @@ set(USE_FR_OPENGL_WARPPER ON)
 if((NOT FR_OPENGL_WARPPER_PATH) OR (NOT EXISTS ${FR_OPENGL_WARPPER_PATH}))
     execute_process(COMMAND git clone git@github.com:Fork3r/FROpenGLWrapper.git -b dev
             ${CMAKE_CURRENT_SOURCE_DIR}/realization/FROpenGLWrapper)
+    set(FR_OPENGL_WARPPER_PATH ${CMAKE_CURRENT_SOURCE_DIR}/realization/FROpenGLWrapper)
 endif()
 include(${CMAKE_CURRENT_SOURCE_DIR}/realization/FROpenGLWrapper/CMakeLists.txt)
 include_directories(..)
